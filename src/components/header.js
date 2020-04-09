@@ -2,6 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
+//부모 컴포넌트에서 받은 Props { siteTitle }
 const Header = ({ siteTitle }) => (
   <header
     style={{

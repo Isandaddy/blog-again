@@ -13,6 +13,8 @@ import Header from "./header"
 import "./layout.css"
 
 const Layout = ({ children }) => {
+  //children은 Layout으로 감싼 하위 자식들이다.
+  console.log(children);
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -33,8 +35,31 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
-        <footer>
+        <div style={{
+          display:`block`, 
+          clear:`both`
+          }}>
+          <aside style={{
+            position: `fixed`,
+            bottom: `0`,
+            width: `20%`,
+            top:`60`,
+            backgroundColor: `#555`
+            }}>
+              나 소개
+          </aside>
+          <main style={{
+            float:`right`,
+            width: `80%`
+            }}>
+              {children}
+          </main>
+        </div>
+        <footer style={{
+          position: `absolute`,
+          height: `60px`,
+          width: `100%`
+        }}>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
