@@ -19,7 +19,8 @@ const Layout = ({ children }) => {
     query SiteTitleQuery {
       site {
         siteMetadata {
-          title
+          title,
+          author
         }
       }
     }
@@ -36,30 +37,21 @@ const Layout = ({ children }) => {
         }}
       >
         <div style={{
-          display:`block`, 
-          clear:`both`
-          }}>
+          display: `flex`
+        }}>
           <aside style={{
-            position: `fixed`,
-            bottom: `0`,
-            width: `20%`,
-            top:`60`,
-            backgroundColor: `#555`
-            }}>
-              나 소개
+            width: `20%`, 
+            background: `#1E90FF`
+          }}>
+              {data.site.siteMetadata.author}
           </aside>
           <main style={{
-            float:`right`,
-            width: `80%`
-            }}>
+            width: `80%`,    
+          }}> 
               {children}
           </main>
-        </div>
-        <footer style={{
-          position: `absolute`,
-          height: `60px`,
-          width: `100%`
-        }}>
+        </div>  
+        <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
