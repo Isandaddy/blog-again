@@ -26,7 +26,7 @@ export const query = graphql`
 const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
-    <div style={{ maxWidth: `400px`, marginBottom: `1.45rem` }}>
+    <div style={{ maxWidth: `800px`, marginBottom: `1.45rem` }}>
      <h4>{data.allMarkdownRemark.totalCount}posts</h4>
      <header>
       {data.allMarkdownRemark.edges.map(

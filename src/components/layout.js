@@ -32,7 +32,7 @@ const Layout = ({ children }) => {
       <div
         style={{
           margin: `0 auto`,
-          maxWidth: 960,
+          maxWidth: `100%`,
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
@@ -40,13 +40,13 @@ const Layout = ({ children }) => {
           display: `flex`
         }}>
           <aside style={{
-            width: `20%`, 
+            width: `15%`, 
             background: `#1E90FF`
           }}>
               {data.site.siteMetadata.author}
           </aside>
           <main style={{
-            width: `80%`,    
+            width: `85%`,    
           }}> 
               {children}
           </main>
