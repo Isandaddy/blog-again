@@ -1,8 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
 
 export const query = graphql`
@@ -15,6 +13,9 @@ export const query = graphql`
             title
             date
           }
+          fields {
+            slug
+          }
           excerpt
         }
       }
@@ -26,26 +27,25 @@ const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
     <div style={{ maxWidth: `400px`, marginBottom: `1.45rem` }}>
-     {/* <Image />*/}
      <h4>{data.allMarkdownRemark.totalCount}posts</h4>
      <header>
       {data.allMarkdownRemark.edges.map(
         ({node}) => (
           <div key={node.id}>
-            <h3 style={{
-                  marginBottom: `rhythm(1 / 4)`,
-                }}>
-                  {node.frontmatter.title}
-            </h3>
-            <small>{node.frontmatter.date}</small>
-            <p>{node.excerpt}</p>
+            <Link to={node.fields.slug}>
+              <h3 style={{
+                    marginBottom: `rhythm(1 / 4)`,
+                  }}>
+                    {node.frontmatter.title}
+              </h3>
+              <small>{node.frontmatter.date}</small>
+              <p>{node.excerpt}</p>
+            </Link>
           </div>
         )
       )}
      </header>
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
   </Layout>
 )
-
 export default IndexPage
