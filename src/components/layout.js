@@ -41,12 +41,13 @@ const Layout = ({ children }) => {
         }}>
           <aside style={{
             width: `15%`, 
-            background: `#1E90FF`
+            background: `#1E90FF`,
+            marginRight: `1rem`
           }}>
               {data.site.siteMetadata.author}
           </aside>
           <main style={{
-            width: `85%`,    
+            width: `85%`,  
           }}> 
               {children}
           </main>

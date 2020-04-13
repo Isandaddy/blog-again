@@ -6,8 +6,11 @@ import React from "react"
 const Header = ({ siteTitle }) => (
   <header
     style={{
-      background: `rebeccapurple`,
-      //marginBottom: `1rem`,
+      background: `white`,
+      borderStyle: `solid`,
+      borderImage: `linear-gradient(to right, #01c9ca 0%, #3886FF 100%)`,
+      borderImageSlice: `1`,
+      borderImageWidth: `0 0 10px 0`
     }}
   >
     <div
@@ -21,7 +24,7 @@ const Header = ({ siteTitle }) => (
         <Link
           to="/"
           style={{
-            color: `white`,
+            color: `black`,
             textDecoration: `none`,
           }}
         >
