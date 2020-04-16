@@ -1,26 +1,17 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { AppBar } from '@material-ui/core';
 
 //부모 컴포넌트에서 받은 Props { siteTitle }
 const Header = ({ siteTitle }) => (
-  <header
+  <AppBar
     style={{
       background: `white`,
-      borderStyle: `solid`,
-      borderImage: `linear-gradient(to right, #01c9ca 0%, #3886FF 100%)`,
-      borderImageSlice: `1`,
-      borderImageWidth: `0 0 10px 0`
+	  position: `sticky`
     }}
   >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
+      <h2 style={{ margin: 0 }}>
         <Link
           to="/"
           style={{
@@ -30,9 +21,8 @@ const Header = ({ siteTitle }) => (
         >
           {siteTitle}
         </Link>
-      </h1>
-    </div>
-  </header>
+      </h2>
+  </AppBar>
 )
 
 Header.propTypes = {

@@ -2,6 +2,10 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Card from "@material-ui/core/Card"
+import CardContent from "@material-ui/core/CardContent"
+import CardActionArea from '@material-ui/core/CardActionArea'
+import Divider from "@material-ui/core/Divider"
 
 export const query = graphql`
   query {
@@ -28,23 +32,31 @@ const IndexPage = ({data}) => (
     <SEO title="Home" />
     <div style={{ maxWidth: `800px`, marginBottom: `1.45rem` }}>
      <h4>{data.allMarkdownRemark.totalCount}posts</h4>
-     <header>
+	 <Divider/>
+     <div>
       {data.allMarkdownRemark.edges.map(
         ({node}) => (
-          <div key={node.id}>
-            <Link to={node.fields.slug}>
-              <h3 style={{
-                    marginBottom: `rhythm(1 / 4)`,
-                  }}>
-                    {node.frontmatter.title}
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p>{node.excerpt}</p>
-            </Link>
-          </div>
+		<div>	
+          <Card key={node.id}>
+			<CardContent>	
+				<Link to={node.fields.slug}>
+					<CardActionArea>
+					  <h3 style={{
+							marginBottom: `rhythm(1 / 4)`,
+						  }}>
+							{node.frontmatter.title}
+					  </h3>
+					  <small>{node.frontmatter.date}</small>
+					  <p>{node.excerpt}</p>
+					</CardActionArea>
+				</Link>
+			</CardContent>
+          </Card>
+		  <Divider/>
+		</div>
         )
       )}
-     </header>
+     </div>
     </div>
   </Layout>
 )

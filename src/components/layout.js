@@ -8,7 +8,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
 import Header from "./header"
 import "./layout.css"
 
@@ -36,19 +35,8 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <div style={{
-          display: `flex`
-        }}>
-          <aside style={{
-            width: `15%`, 
-            background: `#1E90FF`,
-            marginRight: `1rem`
-          }}>
-              {data.site.siteMetadata.author}
-          </aside>
-          <main style={{
-            width: `85%`,  
-          }}> 
+        <div>
+          <main> 
               {children}
           </main>
         </div>  
