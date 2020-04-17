@@ -5,7 +5,8 @@ import SEO from "../components/seo"
 import Card from "@material-ui/core/Card"
 import CardContent from "@material-ui/core/CardContent"
 import CardActionArea from '@material-ui/core/CardActionArea'
-import Divider from "@material-ui/core/Divider"
+import Container from '@material-ui/core/Container'
+import Divider from '@material-ui/core/Divider'
 
 export const query = graphql`
   query {
@@ -30,7 +31,7 @@ export const query = graphql`
 const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" />
-    <div style={{ maxWidth: `800px`, marginBottom: `1.45rem` }}>
+    <div style={{ marginBottom: `1.45rem` }}>
      <h4>{data.allMarkdownRemark.totalCount}posts</h4>
 	 <Divider/>
      <div>
@@ -52,7 +53,7 @@ const IndexPage = ({data}) => (
 				</Link>
 			</CardContent>
           </Card>
-		  <Divider/>
+          <Container style={{ height: `1rem` }}/>
 		</div>
         )
       )}
